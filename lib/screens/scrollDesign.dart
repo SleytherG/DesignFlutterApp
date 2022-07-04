@@ -33,6 +33,46 @@ class ScrollScreen extends StatelessWidget {
   }
 }
 
+
+
+class Page1 extends StatelessWidget {
+  const Page1({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        //Background Image
+        BackgroundImage(),
+        //Main Content
+        MainContent()
+      ],
+    );
+  }
+}
+
+
+class BackgroundImage extends StatelessWidget {
+  const BackgroundImage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xff30BAD6),
+      height: double.infinity,
+      alignment: Alignment.topCenter,
+      child: Image(
+        image: AssetImage('assets/scroll-1.png'),
+      ),
+    );
+  }
+}
+
+
 class MainContent extends StatelessWidget {
   const MainContent({
     Key? key,
@@ -60,40 +100,6 @@ class MainContent extends StatelessWidget {
   }
 }
 
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color(0xff30BAD6),
-      height: double.infinity,
-      alignment: Alignment.topCenter,
-      child: Image(
-        image: AssetImage('assets/scroll-1.png')),
-    );
-  }
-}
-
-class Page1 extends StatelessWidget {
-  const Page1({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        //Background Image
-        BackgroundImage(),
-        //Main Content
-        MainContent()
-      ],
-    );
-  }
-}
 
 class Page2 extends StatelessWidget {
 
@@ -101,18 +107,27 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xff30BAD6),
-      child: Center(
-        child: TextButton(
-          onPressed: () {},
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40),
-            child: Text('Bienvenido', style: TextStyle(color: Colors.white, fontSize: 30),),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 30
           ),
-          style: TextButton.styleFrom(
-            backgroundColor: Color(0xff0098FA),
-            shape: StadiumBorder()
-          )
-        ),
+          Icon(Icons.keyboard_arrow_up, size: 100, color: Colors.white),
+          SizedBox(
+            height: 320
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Text('Bienvenido', style: TextStyle(color: Colors.white, fontSize: 30),),
+            ),
+            style: TextButton.styleFrom(
+              backgroundColor: Color(0xff0098FA),
+              shape: StadiumBorder()
+            )
+          ),
+        ],
       ),
     );
     
